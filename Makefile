@@ -1,8 +1,8 @@
 default:
-	python tensorfactorization/main.py
+	python experiment/main.py
 
 dependencies:
 	pip install -r pip-requirements.txt
 
-evaluation:
-	python tensorfactorization/evaluation.py
+#evaluation:
+#	python tensorfactorization/evaluation.py
