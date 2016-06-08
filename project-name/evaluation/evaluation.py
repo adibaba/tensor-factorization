@@ -1,6 +1,4 @@
 import numpy as np
-import theano
-import theano.tensor as T
 
 
 def fmeasure(X,A,R,rounding_threshold):
@@ -21,14 +19,3 @@ def fmeasure(X,A,R,rounding_threshold):
 	reca = a/float(relevant)
 	return 2 * prec*reca/float(prec + reca), prec, reca
 
-"""
-def retrieved(A,R,rounding_treshold):
-	A = T.matrix("A")
-	R = T.matrix("R")
-	k = T.iscalar("k")
-	result, update = theano.scan(fn= lambda, prior_result, k: np.sum((A.dot(R).dot(A.T[:,k])+(0.5-rounding_threshold)).round().clip(0,1)) + prior_result, 
-					n_steps = k)
-	final_result = result[-1]
-	retrieved = theano.function(inputs=[A,k], outputs=final_result)
-	return retrieved
-"""
